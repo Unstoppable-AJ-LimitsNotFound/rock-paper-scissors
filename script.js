@@ -36,3 +36,11 @@ function getHumanChoice() {
 }
 let ans2 = getHumanChoice();
 console.log(ans2);
+
+
+//Declare the players score variables
+
+let humanScore = 0;
+let computerScore = 0;
+
+    
