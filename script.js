@@ -10,9 +10,7 @@ function getComputerChoice() {
 
     switch (computerChoice) {
         case 1: return "Rock";
-            break;
         case 2: return "Paper";
-            break;
         case 3: return "Scissors";
     }
 }
@@ -29,9 +27,8 @@ function getHumanChoice() {
     // console.log(humanChoice)
     switch (humanChoice) {
         case "rock": return "Rock";
-            break;
+        //break not required since we are returning in every case
         case "paper": return "Paper";
-            break;
         case "scissors": return "Scissors";
     }
 }
@@ -51,31 +48,38 @@ function playGame() {
     //Write the logic to play a single round
 
     function playRound(humanChoice, computerChoice) {
+        let result;
+
         if (humanChoice === computerChoice) {
-            console.log("Draw!")
+            result = "Draw";
             //human wins cases
-        } else if (humanChoice === "Rock" && computerChoice.toLowerCase() === "scissors") {
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
+            result = "Win"    
             humanScore++;
-        } else if (humanChoice === "Paper" && computerChoice.toLowerCase() === "rock") {
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        } else if (humanChoice === "Paper" && computerChoice === "Rock") {
+            result = "Win"    
             humanScore++;
-        } else if (humanChoice === "Scissors" && computerChoice.toLowerCase() === "paper") {
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
+            result = "Win"
             humanScore++;
 
             //computer wins cases
-        } else if (humanChoice === "Rock" && computerChoice.toLowerCase() === "paper") {
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        } else if (humanChoice === "Rock" && computerChoice === "Paper") {
+            result = "Lose"    
             computerScore++;
-        } else if (humanChoice === "Paper" && computerChoice.toLowerCase() === "scissors") {
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        } else if (humanChoice === "Paper" && computerChoice === "Scissors") {
+            result = "Lose"    
             computerScore++;
-        } else if (humanChoice === "Scissors" && computerChoice.toLowerCase() === "rock") {
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        } else if (humanChoice === "Scissors" && computerChoice === "Rock") {
+            result = "Lose"    
             computerScore++;
         }
         
+        if (result === "Draw") {
+            console.log(`You ${result}!`);
+        } else {
+            console.log(`You ${result}! ${humanChoice} beats ${computerChoice}`);
+        }
         console.log(`Human Score: ${humanScore}; Computer Score: ${computerScore}`);
     }
 
