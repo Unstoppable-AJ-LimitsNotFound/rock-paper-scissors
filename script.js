@@ -86,23 +86,32 @@ function playGame() {
     
     
     //Playing game
-    for (let i = 0; i < 5; i++) {
-        //PLaying Round
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
+    // for (let i = 0; i < 5; i++) {
+    //     //PLaying Round
+    //     const humanSelection = getHumanChoice();
+    //     const computerSelection = getComputerChoice();
     
-        playRound(humanSelection, computerSelection);
-    }
+    //     playRound(humanSelection, computerSelection);
+    // }
 
-    if (humanScore > computerScore) {
-        console.log("You WIN!!!")
-    } else if (computerScore > humanScore) {
-        console.log("You LOSE!!! Better luck next next time...")
-    } else {
-        console.log("Draw!!!");
-    }
+    // if (humanScore > computerScore) {
+    //     console.log("You WIN!!!")
+    // } else if (computerScore > humanScore) {
+    //     console.log("You LOSE!!! Better luck next next time...")
+    // } else {
+    //     console.log("Draw!!!");
+    // }
 
 }
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        // console.log(button.textContent);
+        playRound(button.textContent, getComputerChoice());
+    });
+});
 
 
 
