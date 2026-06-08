@@ -15,20 +15,6 @@ function getComputerChoice() {
     }
 }
 
-// Add logic for human choice
-
-function getHumanChoice() {
-    let humanChoice = prompt("What's your choice?");
-    humanChoice = humanChoice.toLowerCase();
-    // console.log(humanChoice)
-    switch (humanChoice) {
-        case "rock": return "Rock";
-        //break not required since we are returning in every case
-        case "paper": return "Paper";
-        case "scissors": return "Scissors";
-    }
-}
-
 //Write the logic to play the entire game
 
 //Declare the players score variables
@@ -36,11 +22,11 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-let i = 1;
 function playGame() {
     const resultDiv = document.querySelector("div");
-
-
+    
+    
+    let i = 1;
     //Write the logic to play a single round
 
     function playRound(humanChoice, computerChoice) {
