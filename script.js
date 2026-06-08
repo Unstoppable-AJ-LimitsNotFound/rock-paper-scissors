@@ -85,8 +85,10 @@ function playGame() {
 
         if (result === "Draw") {
             roundResult.textContent = `You ${result}!`;
-        } else {
+        } else if (result === "Win") {
             roundResult.textContent = `You ${result}! ${humanChoice} beats ${computerChoice}`;
+        } else {
+            roundResult.textContent = `You ${result}! ${computerChoice} beats ${humanChoice}`;
         }
 
         let roundScore = document.createElement("p");
@@ -100,9 +102,19 @@ function playGame() {
         // resultDiv.appendChild(roundScore);
         // resultDiv.appendChild(hLine);
 
-        if (humanScore === 5 && computerScore < 5) {
+        function buttonsDisable() {
+            buttons.forEach((button) => {
+                button.disabled = true;
+            });
+        }
+
+        if (humanScore === 5) {
+            buttonsDisable();
+
             alert("You WIN!!!");
-        } else if (computerScore === 5 && humanScore < 5) {
+        } else if (computerScore === 5) {
+            buttonsDisable();
+
             alert("You LOSE!!! Better luck next next time...");
         }
     }
